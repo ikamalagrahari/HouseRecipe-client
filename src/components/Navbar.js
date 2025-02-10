@@ -6,7 +6,6 @@ import {
   faTimes,
   faUtensils,
   faPlus,
-  faStar,
   faSignOutAlt,
   faSignInAlt,
   faUserPlus,
@@ -96,7 +95,7 @@ const Navbar = () => {
                   <>
                     <NavItem to="/recipes" icon={faUtensils} label="Recipes" onClick={() => setIsOpen(false)} />
                     <NavItem to="/addRecipe" icon={faPlus} label="Add Recipe" onClick={() => setIsOpen(false)} />
-                    <NavItem to="/favouriteRecipes" icon={faStar} label="Favorites" onClick={() => setIsOpen(false)} />
+                    <NavItem to="/favouriteRecipes" icon={faHeart} label="Favorites" onClick={() => setIsOpen(false)} />
                     <NavItem to="/contact" icon={faPhone} label="Contact" onClick={() => setIsOpen(false)} />
                     <button
                       onClick={LogoutUser}
