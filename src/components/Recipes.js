@@ -59,6 +59,35 @@ const Recipes = () => {
     }));
   };
 
+const SearchRecipes = async (e) => {
+    try {
+      if (e.target.value) {
+        let Searchedrecipes = await fetch(
+          `${BACKEND_URL}/auth/searchRecipes/${e.target.value}`,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+
+        Searchedrecipes = await Searchedrecipes.json();
+
+        if (!Searchedrecipes.message) {
+          setRecipes(Searchedrecipes);
+        } else {
+          setRecipes([]);
+        }
+      } else {
+        getRecipes();
+      }
+    } catch (e) {
+      console.log(e.message);
+    }
+  };
+
+  
   return (
     <div className="min-h-screen bg-gradient-to-r from-gray-100 to-gray-200 p-8">
       <div className="flex justify-center mb-8">
@@ -66,6 +95,7 @@ const Recipes = () => {
           type="text"
           className="w-full max-w-xl px-5 py-3 text-lg border rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
           placeholder="Search delicious recipes..."
+          onChange={(e) => SearchRecipes(e)}
         />
       </div>
 
