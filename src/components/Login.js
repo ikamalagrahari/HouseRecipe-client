@@ -22,7 +22,7 @@ const Login = () => {
     }
 
     try {
-      let response = await fetch(`https://house-recipe-server.vercel.app/auth/login`, {
+      let response = await fetch(`${BACKEND_URL}/auth/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email: Email, password }),
