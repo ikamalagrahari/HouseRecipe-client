@@ -22,7 +22,7 @@ const Register = () => {
     }
 
     try {
-      const response = await fetch(`${BACKEND_URL}/auth/register`, {
+      const response = await fetch(`https://house-recipe-server.vercel.app/auth/register`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, email: Email, password }),
